@@ -78,6 +78,12 @@ button, input[type=submit] {
   height: 100%;
   max-height: 900px;
   text-align: center;
+  background-color: lightblue;
+}
+
+.main-container ul li {
+  background-color: #474747;
+  
 }
 
 .section {
@@ -170,11 +176,39 @@ button, input[type=submit] {
 
 /* Overlay */
 
-#overlay {
+/* #overlay {
   display: flex;
   flex-direction: column;
   position: fixed;
   color: #FFFFFF;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+} */
+
+#win-overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: #FFFFFF;
+  background-color: #2b782e;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+#lose-overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: #FFFFFF;
+  background-color: #bf1d00;
   justify-content: center;
   top: 0;
   bottom: 0;

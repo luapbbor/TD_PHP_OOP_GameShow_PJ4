@@ -44,16 +44,15 @@ if(isset($_POST['key'])) {
 
 <body>
 
-<div class="main-container">
-   <div id="banner" class="section">
-        <h2 class="header">Phrase Hunter</h2>
+<div class="main-container">  
+        
         <?php
         if ($game->gameOver()) {
-        echo $game->gameOver();
-        echo '<form action="play.php" method="post">';
-        echo '<input id="btn__reset" type="submit" name="start" value="Re-start Game" />';
-        echo '</form>';
+             echo $game->gameOver();  
+        
         } else {
+            echo '<div id="banner" class="section">';   
+            echo '<h2 class="header">Phrase Hunter</h2>';
          echo '<div id="phrase" class="section">';
          echo $phrase->addPhraseToDisplay();
          echo '</div>';
@@ -66,13 +65,30 @@ if(isset($_POST['key'])) {
          echo '<ol>';
          echo $game->displayScore();
          echo '</ol>';
+         echo '</div>';
+         echo '</div>';
         }
 ?>
-        
-        
-        
-        </div> 
-</div>
+           
+</div> 
+
+<script>
+
+// Get all the keys with a class of key
+var keys = document.querySelectorAll('.key');
+// when a button on the keyboard is clicked
+document.addEventListener("keyup", e => {
+    // Loop through all the keys on the keyboard
+    for (var i = 0; i < keys.length; i++) {
+        // If the value of the key on the keyboard matches the button pressed on the keyboard
+        if (keys[i].value == e.key) {
+        // click that key
+            keys[i].click();
+        }        
+}
+});
+
+</script>
 
 </body>
 </html>

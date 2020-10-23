@@ -14,7 +14,7 @@ class Game {
     public function keyHandler($letter) {
       
       if(!in_array($letter,$this->phrase->selected)) {
-             return '<button type="submit" class="key" name="key" value="'.$letter.'">'.$letter.'</button>';
+             return '<button type="submit" class="key" name="key" id="'.$letter.'"value="'.$letter.'">'.$letter.'</button>';
       } else {
         if($this->phrase->checkLetter($letter)) {
           
@@ -99,11 +99,27 @@ class Game {
 
     public function gameOver() {
       $gameOverHTML = "";
-      if ($this->checkForLose()) {        
-        $gameOverHTML .= '<h1 id="game-over-message">The phrase was: ' . $this->phrase->currentPhrase . '. Better luck next time!</h1>';        
+      if ($this->checkForLose()) {   
+        $gameOverHTML .= '<div id="lose-overlay">';  
+        $gameOverHTML .= '<div id="banner" class="section">';
+        $gameOverHTML .= '<h2 class="header">Phrase Hunter</h2>'; 
+        $gameOverHTML .= '</div>'; 
+        $gameOverHTML .= '<h1 id="game-over-message">The phrase was: ' . $this->phrase->currentPhrase . '. Better luck next time!</h1>'; 
+        $gameOverHTML .= '<form action="play.php" method="post">';
+        $gameOverHTML .= '<input id="btn__reset" type="submit" name="start" value="Re-start Game" />';
+        $gameOverHTML .= '</form>';
+        $gameOverHTML .= '</div>';       
         return $gameOverHTML;
       } elseif ($this->checkForWin()) {
-        $gameOverHTML .= '<h1 id="game-over-message">Congratulations on guessing: ' . $this->phrase->currentPhrase . '</h1>';
+        $gameOverHTML .= '<div id="win-overlay">';  
+        $gameOverHTML .= '<div id="banner" class="section">';
+        $gameOverHTML .= '<h2 class="header">Phrase Hunter</h2>'; 
+        $gameOverHTML .= '</div>';  
+        $gameOverHTML .= '<h1 id="game-over-message">Congratualations on guessing the phrase: ' . $this->phrase->currentPhrase . '</h1>'; 
+        $gameOverHTML .= '<form action="play.php" method="post">';
+        $gameOverHTML .= '<input id="btn__reset" type="submit" name="start" value="Re-start Game" />';
+        $gameOverHTML .= '</form>';
+        $gameOverHTML .= '</div>';   
         return $gameOverHTML;
 
       } else {
