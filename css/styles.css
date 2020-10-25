@@ -99,7 +99,9 @@ button, input[type=submit] {
 
 .header {
   color: #3a3f58;
+  text-shadow: 2px 2px 4px darkblue;
 }
+
 
 
 /* Phrase */
@@ -173,21 +175,16 @@ button, input[type=submit] {
   border-right: solid 3px rgba(0, 0, 0, 0);
 }
 
+/* animations */
+
+
+/* The animation for the intro Button */
+@keyframes introButton {
+  from {background-color:#a19f9e; color:black}
+  to {background-color: #157017; color: white}  }
+
 
 /* Overlay */
-
-/* #overlay {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  color: #FFFFFF;
-  justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 5px;
-} */
 
 #win-overlay {
   display: flex;
@@ -222,7 +219,12 @@ button, input[type=submit] {
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: #a19f9e;
+  color: black;
+  animation-name: introButton;
+  animation-duration: 2s;
+ animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .start a {
@@ -244,3 +246,4 @@ button, input[type=submit] {
 .lose a {
   color: var(--color-lose);
 }
+
